@@ -33,6 +33,7 @@ import { MapaComponent } from './utilidades/mapa/mapa.component';
 import { MenuComponent } from './menu/menu.component';
 import { RatingComponent } from './utilidades/rating/rating.component';
 import { SelectorMultipleComponent } from './utilidades/selector-multiple/selector-multiple.component';
+import { AutocompleteActoresComponent } from './actores/autocomplete-actores/autocomplete-actores.component';
 
 
 
@@ -63,7 +64,8 @@ import { SelectorMultipleComponent } from './utilidades/selector-multiple/select
     FormularioCineComponent,
     MapaComponent,
     FormularioPeliculasComponent,
-    SelectorMultipleComponent   
+    SelectorMultipleComponent,
+    AutocompleteActoresComponent   
   ],
   imports: [
     BrowserModule,

@@ -26,7 +26,13 @@ export class FormularioPeliculasComponent implements OnInit {
     {llave:4, valor: 'Comedia'}];
 
     generosSeleccionados: MultipleSelectorModel[] = [];
+  
+  cinesNoSeleccionados: MultipleSelectorModel[] = [
+      {llave:1, valor: 'Cinemark'},
+      {llave:2, valor: 'Gran Plaza'},
+      {llave:3, valor: 'Cine colombia'}];
 
+  cinesSeleccionados: MultipleSelectorModel[] = [];
 
 
 
@@ -39,7 +45,8 @@ export class FormularioPeliculasComponent implements OnInit {
       trailer:'',
       fechaLanzamiento:'',
       poster:'',
-      generosId:''
+      generosId:'',
+      cinesId:''
     })
 
     if(this.modelo !==undefined){
@@ -48,9 +55,12 @@ export class FormularioPeliculasComponent implements OnInit {
   }
 
   guardarCambios(){
-    console.log(this.generosSeleccionados);
     const generosId = this.generosSeleccionados.map(val => val.llave);
     this.form.get('generosId').setValue(generosId);
+
+    const cinesId = this.cinesSeleccionados.map(val => val.llave);
+    this.form.get('cinesId').setValue(cinesId);
+
     this.OnSubmit.emit(this.form.value);
   }
   archivoSeleccionado(archivo:File){
