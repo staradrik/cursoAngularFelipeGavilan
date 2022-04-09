@@ -9,6 +9,30 @@
         </mat-option>
     </mat-autocomplete>
 </form>
-<ul>
-    <li *ngFor="let actor of actoresSeleccionados" >{{actor.nombre}} </li>
-</ul>
+
+
+  <table *ngIf="actoresSeleccionados.length > 0" class="mat-elevation-z8" cdkDropList
+    [cdkDropListData]="actoresSeleccionados" (cdkDropListData)="finalizarArrastre($event)"> 
+
+    <tr>
+        <th>N°</th>
+        <th>Nombre</th>
+        <th>personaje</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let actor of actoresSeleccionados" cdkDrag [cdkDragData]="actor">  
+        <td><img style="width: 50px;" [src]="actor.foto"></td>   
+        <td>{{actor.nombre}} </td>   
+        <td> 
+            <mat-form-field appearence="outline" >
+                <mat-label>Personaje</mat-label>
+                <input matInput [(ngModel)]="actor.personaje" />
+            </mat-form-field>
+             </td>   
+        <td> <mat-icon mat-list-icon (click)="eliminar(actor)" >
+            close
+        </mat-icon> </td>                
+    </tr>
+   
+ 
+</table> 
