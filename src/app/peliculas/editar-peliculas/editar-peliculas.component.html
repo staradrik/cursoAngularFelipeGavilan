@@ -1,2 +1,2 @@
 <h2>Editar pelicula</h2>
-<app-formulario-peliculas [modelo]="modelo" ></app-formulario-peliculas>
+<app-formulario-peliculas [modelo]="modelo" (OnSubmit)="guardarCambios($event)" ></app-formulario-peliculas>
