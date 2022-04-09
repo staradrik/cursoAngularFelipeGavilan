@@ -32,6 +32,7 @@ import { ListadoGenericoComponent } from './utilidades/listado-generico/listado-
 import { MapaComponent } from './utilidades/mapa/mapa.component';
 import { MenuComponent } from './menu/menu.component';
 import { RatingComponent } from './utilidades/rating/rating.component';
+import { SelectorMultipleComponent } from './utilidades/selector-multiple/selector-multiple.component';
 
 
 
@@ -61,7 +62,8 @@ import { RatingComponent } from './utilidades/rating/rating.component';
     InputMarkdownComponent,
     FormularioCineComponent,
     MapaComponent,
-    FormularioPeliculasComponent   
+    FormularioPeliculasComponent,
+    SelectorMultipleComponent   
   ],
   imports: [
     BrowserModule,
