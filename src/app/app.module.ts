@@ -24,6 +24,8 @@ import { EditarPeliculasComponent } from './peliculas/editar-peliculas/editar-pe
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormularioGeneroComponent } from './generos/formulario-genero/formulario-genero.component';
 import { FiltroPeliculasComponent } from './peliculas/filtro-peliculas/filtro-peliculas.component';
+import { FormulariosActoresComponent } from './actores/formularios-actores/formularios-actores.component';
+import { InputImgComponent } from './utilidades/input-img/input-img.component';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { FiltroPeliculasComponent } from './peliculas/filtro-peliculas/filtro-pe
     EditarCinesComponent,
     EditarPeliculasComponent,
     FormularioGeneroComponent,
-    FiltroPeliculasComponent   
+    FiltroPeliculasComponent,
+    FormulariosActoresComponent,
+    InputImgComponent   
   ],
   imports: [
     BrowserModule,
