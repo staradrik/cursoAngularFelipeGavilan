@@ -19,16 +19,17 @@ export class FormularioGeneroComponent implements OnInit {
   modelo: generoCreacionDTO;
 
   @Output()
-  submit: EventEmitter<generoCreacionDTO> = new EventEmitter<generoCreacionDTO>();
+  OnSubmit: EventEmitter<generoCreacionDTO> = new EventEmitter<generoCreacionDTO>();
 
   guardarCambios(){
-    this.submit.emit(this.form.value);
+    this.OnSubmit.emit(this.form.value);
   }
 
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      nombre: ['', {validators: [Validators.required, Validators.minLength(3), primeraLetraMayuscula()]}]
+     // nombre: ['', {validators: [Validators.required, Validators.minLength(3), primeraLetraMayuscula()]}]
+      nombre: ['', {validators: [Validators.required, Validators.minLength(3)]}]
     });
     if(this.modelo !== undefined){
       this.form.patchValue(this.modelo);
