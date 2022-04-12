@@ -15,6 +15,10 @@ export class FormularioGeneroComponent implements OnInit {
   constructor(private router:Router, private formBuilder: FormBuilder) { }
 
   form: FormGroup;
+
+  @Input()
+  errores: string[]=[];
+  
   @Input()
   modelo: generoCreacionDTO;
 

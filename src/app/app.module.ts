@@ -33,8 +33,10 @@ import { ListadoPeliculasComponent } from './peliculas/listado-peliculas/listado
 import { ListadoGenericoComponent } from './utilidades/listado-generico/listado-generico.component';
 import { MapaComponent } from './utilidades/mapa/mapa.component';
 import { MenuComponent } from './menu/menu.component';
+import { MostrarErroresComponent } from './utilidades/mostrar-errores/mostrar-errores.component';
 import { RatingComponent } from './utilidades/rating/rating.component';
 import { SelectorMultipleComponent } from './utilidades/selector-multiple/selector-multiple.component';
+
 
 
 
@@ -67,8 +69,9 @@ import { SelectorMultipleComponent } from './utilidades/selector-multiple/select
     ListadoPeliculasComponent,
     MapaComponent,
     MenuComponent,
+    MostrarErroresComponent, 
     RatingComponent,
-    SelectorMultipleComponent     
+    SelectorMultipleComponent       
   ],
   imports: [
     AppRoutingModule,
