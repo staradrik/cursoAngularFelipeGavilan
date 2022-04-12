@@ -37,17 +37,12 @@ export class AutocompleteActoresComponent implements OnInit {
 
   optionSelected(event : MatAutocompleteSelectedEvent){
     console.log(event.option.value);
-    this.actoresSeleccionados.push(event.option.value);
-    console.log(this.actoresSeleccionados);
+    this.actoresSeleccionados.push(event.option.value);   
     this.control.patchValue('');
     console.log(this.table);
-    if(this.table !==undefined){
-      console.log('entre al IF PERRITO!')
-      this.table.renderRows();
-      
-    } else{
-      console.log('PAILA');
-    }
+    if(this.table !== undefined){
+      this.table.renderRows();     
+    } 
 
   }
 
@@ -61,7 +56,7 @@ export class AutocompleteActoresComponent implements OnInit {
       actor => actor === event.item.data
     )
     moveItemInArray(this.actoresSeleccionados, indicePrevio, event.currentIndex);
-    //this.table.renderRows();
+    this.table.renderRows();
 
   }
 
