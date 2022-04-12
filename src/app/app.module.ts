@@ -2,12 +2,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material/material/material.module';
 import {MarkdownModule} from 'ngx-markdown';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { AutocompleteActoresComponent } from './actores/autocomplete-actores/autocomplete-actores.component';
 import { CrearActorComponent } from './actores/crear-actor/crear-actor.component';
 import { CrearCineComponent } from './cines/crear-cine/crear-cine.component';
 import { CrearGeneroComponent } from './generos/crear-genero/crear-genero.component';
@@ -33,49 +35,51 @@ import { MapaComponent } from './utilidades/mapa/mapa.component';
 import { MenuComponent } from './menu/menu.component';
 import { RatingComponent } from './utilidades/rating/rating.component';
 import { SelectorMultipleComponent } from './utilidades/selector-multiple/selector-multiple.component';
-import { AutocompleteActoresComponent } from './actores/autocomplete-actores/autocomplete-actores.component';
+
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListadoPeliculasComponent,
-    ListadoGenericoComponent,
-    MenuComponent,
-    RatingComponent,
-    LandingPageComponent,
-    IndiceGenerosComponent,
-    CrearGeneroComponent,
-    IndiceActoresComponent,
+    AutocompleteActoresComponent,
     CrearActorComponent,
-    CrearPeliculaComponent,
     CrearCineComponent,
-    IndiceCinesComponent,
+    CrearGeneroComponent,
+    CrearPeliculaComponent,
     EditarActorComponent,
-    EditarGenerosComponent,
     EditarCinesComponent,
-    EditarPeliculasComponent,
-    FormularioGeneroComponent,
+    EditarGenerosComponent,
+    EditarPeliculasComponent,  
     FiltroPeliculasComponent,
     FormulariosActoresComponent,
+    FormularioCineComponent,
+    FormularioGeneroComponent,
+    FormularioPeliculasComponent,   
+    IndiceActoresComponent, 
+    IndiceCinesComponent,
+    IndiceGenerosComponent,
     InputImgComponent,
     InputMarkdownComponent,
-    FormularioCineComponent,
+    LandingPageComponent,
+    ListadoGenericoComponent,
+    ListadoPeliculasComponent,
     MapaComponent,
-    FormularioPeliculasComponent,
-    SelectorMultipleComponent,
-    AutocompleteActoresComponent   
+    MenuComponent,
+    RatingComponent,
+    SelectorMultipleComponent     
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule, 
-    MaterialModule,
-    ReactiveFormsModule,
-    MarkdownModule.forRoot(),
-    LeafletModule,
+    BrowserModule,
     FormsModule,
+    HttpClientModule,
+    LeafletModule,
+    MarkdownModule.forRoot(),
+    MaterialModule,
+    ReactiveFormsModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
