@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { cineCreacionDTO } from './cine';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { cineCreacionDTO, cineDTO } from './cine';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,12 +17,12 @@ export class CinesService {
     return this.http.post(this.apiURL, cine);
   }
 
-  // public obtenerTodos(pagina: number, cantidadRegistrosAMostrar: number): Observable<any>{
-  //   let params = new HttpParams();
-  //   params = params.append('pagina', pagina.toString());
-  //   params = params.append('recordsPorPagina', cantidadRegistrosAMostrar.toString());
-  //   return this.http.get<cineDTO[]>(this.apiURL, {observe: 'response', params});
-  // }
+  public obtenerTodos(pagina: number, cantidadRegistrosAMostrar: number): Observable<any>{
+    let params = new HttpParams();
+    params = params.append('pagina', pagina.toString());
+    params = params.append('recordsPorPagina', cantidadRegistrosAMostrar.toString());
+    return this.http.get<cineDTO[]>(this.apiURL, {observe: 'response', params});
+  }
 
   // public obtenerPorId(id: number): Observable<cineDTO>{
   //   return this.http.get<cineDTO>(`${this.apiURL}/${id}`);
@@ -31,7 +32,7 @@ export class CinesService {
   //   return this.http.put(`${this.apiURL}/${id}`, cine);
   // }
 
-  // public borrar(id: number) {
-  //   return this.http.delete(`${this.apiURL}/${id}`);
-  // }
+  public borrar(id: number) {
+    return this.http.delete(`${this.apiURL}/${id}`);
+  }
 }
