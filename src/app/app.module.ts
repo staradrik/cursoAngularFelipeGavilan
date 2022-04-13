@@ -7,6 +7,7 @@ import { MaterialModule } from './material/material/material.module';
 import {MarkdownModule} from 'ngx-markdown';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { AppComponent } from './app.component';
 import { AutocompleteActoresComponent } from './actores/autocomplete-actores/autocomplete-actores.component';
@@ -82,7 +83,8 @@ import { SelectorMultipleComponent } from './utilidades/selector-multiple/select
     LeafletModule,
     MarkdownModule.forRoot(),
     MaterialModule,
-    ReactiveFormsModule  
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
