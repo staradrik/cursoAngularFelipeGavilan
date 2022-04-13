@@ -17,6 +17,9 @@ export class FormulariosActoresComponent implements OnInit {
   @Input()
   modelo: actorDTO;
 
+  @Input()
+  errores: string [] = [];
+
   @Output()
   Onsubmit: EventEmitter<actorCreacionDTO>= new EventEmitter<actorCreacionDTO>();
 
