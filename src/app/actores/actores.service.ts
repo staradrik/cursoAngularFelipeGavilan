@@ -21,9 +21,9 @@ export class ActoresService {
     return this.http.get<actorDTO[]>(this.apiURL, {observe: 'response', params});
   }
 
-  // public obtenerPorId(id: number): Observable<actorDTO>{
-  //   return this.http.get<actorDTO>(`${this.apiURL}/${id}`);
-  // }
+  public obtenerPorId(id: number): Observable<actorDTO>{
+    return this.http.get<actorDTO>(`${this.apiURL}/${id}`);
+  }
 
   // public obtenerPorNombre(nombre: string): Observable<actorPeliculaDTO[]>{
   //   const headers = new HttpHeaders('Content-Type: application/json');
@@ -34,6 +34,11 @@ export class ActoresService {
   public crear(actor: actorCreacionDTO){
     const formData = this.construirFormData(actor);
     return this.http.post(this.apiURL, formData);
+  }
+
+  public editar(id:number, actor: actorCreacionDTO) {
+    const formData = this.construirFormData(actor);
+    return this.http.put(`${this.apiURL}/${id}`, formData);
   }
 
   private construirFormData(actor: actorCreacionDTO): FormData{

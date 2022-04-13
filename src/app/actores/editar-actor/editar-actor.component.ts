@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { parsearErroresApi } from 'src/app/utilidades/utilidades';
 import { actorCreacionDTO, actorDTO } from '../actor';
+import { ActoresService } from '../actores.service';
 
 @Component({
   selector: 'app-editar-actor',
@@ -9,16 +11,28 @@ import { actorCreacionDTO, actorDTO } from '../actor';
 })
 export class EditarActorComponent implements OnInit {
 
-  constructor(private activedRoute: ActivatedRoute) { }
+  constructor(
+    private router: Router,private actoresService: ActoresService,private activatedRoute: ActivatedRoute
+  ) {}
 
-  modelo: actorDTO={nombre: 'Adri', fechaNacimiento: new Date(), foto:'https://t1.ea.ltmcdn.com/es/posts/5/2/6/el_pato_como_mascota_20625_600_square.jpg'}
+  modelo: actorDTO;
+  errores: string[] = [];
+
   ngOnInit(): void {
-    this.activedRoute.params.subscribe(params =>{
-      // alert(params.id);
-    })
+    this.activatedRoute.params.subscribe((params) => {
+      this.actoresService.obtenerPorId(params.id)
+      .subscribe(genero => {
+        this.modelo = genero;
+      }, () => this.router.navigate(['/generos']))
+    });
   }
-  guardarCambios(actor: actorCreacionDTO){
-    console.log(actor)
+
+  guardarCambios(actor: actorCreacionDTO) {
+    this.actoresService.editar(this.modelo.id, actor)
+    .subscribe(() => {
+      this.router.navigate(['/actores']);
+    }, error => this.errores = parsearErroresApi(error))
   }
+
 
 }
