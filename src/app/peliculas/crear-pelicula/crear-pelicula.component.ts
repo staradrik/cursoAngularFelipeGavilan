@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { MultipleSelectorModel } from 'src/app/utilidades/selector-multiple/MultipleSelectorModel';
 import { peliculaCreacionDTO } from '../pelicula';
+import { PeliculasService } from '../peliculas.service';
 
 @Component({
   selector: 'app-crear-pelicula',
@@ -8,12 +11,35 @@ import { peliculaCreacionDTO } from '../pelicula';
 })
 export class CrearPeliculaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private peliculasService: PeliculasService,
+    private router: Router) { }
+
+  errores: string[] = [];
+  generosNoSeleccionados: MultipleSelectorModel [];
+  cinesNoSeleccionados: MultipleSelectorModel [];
 
   ngOnInit(): void {
+    this.peliculasService.postGet()
+    .subscribe(resultado => {
+
+      this.generosNoSeleccionados = resultado.generos.map(genero => {
+        return <MultipleSelectorModel>{llave: genero.id, valor: genero.nombre}
+      });
+
+      this.cinesNoSeleccionados = resultado.cines.map(cines => {
+        return <MultipleSelectorModel>{llave: cines.id, valor: cines.nombre}
+      });
+ console.log(resultado)
+    }, error => console.error(error));
+   
   }
+
   guardarCambios(pelicula: peliculaCreacionDTO){
-    console.log(pelicula);
+     console.log(pelicula)
+    // this.peliculasService.crear(pelicula)
+    // .subscribe((id: number) => this.router.navigate(['/pelicula/' + id]),
+    // error => this.errores = parsearErroresAPI(error));
   }
+  
 
 }
