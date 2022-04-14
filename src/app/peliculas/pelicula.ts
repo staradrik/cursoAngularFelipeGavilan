@@ -37,11 +37,11 @@ export interface LandingPageDTO {
     proximosEstrenos: peliculaDTO[];
 }
 
-// export interface PeliculaPutGet {
-//     pelicula: PeliculaDTO;
-//     generosSeleccionados: generoDTO[];
-//     generosNoSeleccionados: generoDTO[];
-//     cinesSeleccionados: cineDTO[];
-//     cinesNoSeleccionados: cineDTO[];
-//     actores: actorPeliculaDTO[];
-// }
+export interface PeliculaPutGet {
+    pelicula: peliculaDTO;
+    generosSeleccionados: generoDTO[];
+    generosNoSeleccionados: generoDTO[];
+    cinesSeleccionados: cineDTO[];
+    cinesNoSeleccionados: cineDTO[];
+    actores: actorPeliculaDTO[];
+}
