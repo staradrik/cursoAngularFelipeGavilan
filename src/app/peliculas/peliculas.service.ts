@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { formatearFecha } from '../utilidades/utilidades';
-import { PeliculaPostGet, peliculaCreacionDTO, peliculaDTO } from './pelicula';
+import { PeliculaPostGet, peliculaCreacionDTO, peliculaDTO, LandingPageDTO } from './pelicula';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,9 @@ export class PeliculasService {
   constructor(private http: HttpClient) { }
   private apiURL = environment.apiURL + 'peliculas';
 
-  // public obtenerLandingPage(): Observable<LandingPageDTO>{
-  //   return this.http.get<LandingPageDTO>(this.apiURL);
-  // }
+  public obtenerLandingPage(): Observable<LandingPageDTO>{
+    return this.http.get<LandingPageDTO>(this.apiURL);
+  }
 
   public obtenerPorId(id: number): Observable<peliculaDTO>{
     return this.http.get<peliculaDTO>(`${this.apiURL}/${id}`);
