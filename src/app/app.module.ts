@@ -37,6 +37,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MostrarErroresComponent } from './utilidades/mostrar-errores/mostrar-errores.component';
 import { RatingComponent } from './utilidades/rating/rating.component';
 import { SelectorMultipleComponent } from './utilidades/selector-multiple/selector-multiple.component';
+import { DetallePeliculaComponent } from './peliculas/detalle-pelicula/detalle-pelicula.component';
 
 
 
@@ -72,7 +73,8 @@ import { SelectorMultipleComponent } from './utilidades/selector-multiple/select
     MenuComponent,
     MostrarErroresComponent, 
     RatingComponent,
-    SelectorMultipleComponent       
+    SelectorMultipleComponent,
+    DetallePeliculaComponent       
   ],
   imports: [
     AppRoutingModule,
