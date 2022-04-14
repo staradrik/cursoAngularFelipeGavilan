@@ -23,13 +23,14 @@ export class IndiceGenerosComponent implements OnInit {
      this.cargarRegistros(this.paginaActual, this.cantidadRegistrosAMostrar);
   }
 
-  cargarRegistros(pagina:number, cantidadElementosAMostrar){
-    this.generosService.obtenerTodos(pagina, cantidadElementosAMostrar)
-    .subscribe((respuesta: HttpResponse<generoDTO[]>) =>{
+  cargarRegistros(pagina: number, cantidadElementosAMostrar){
+    this.generosService.obtenerPaginado(pagina, cantidadElementosAMostrar)
+    .subscribe((respuesta: HttpResponse<generoDTO[]>) => {
       this.generos = respuesta.body;
       this.cantidadTotalRegistros = respuesta.headers.get("cantidadTotalRegistros");
-  }, error => console.log(error));
+    }, error => console.error(error));
   }
+
   actualizarPaginacion(datos: PageEvent){
     this.paginaActual = datos.pageIndex + 1;
     this.cantidadRegistrosAMostrar = datos.pageSize;

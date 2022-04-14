@@ -35,16 +35,12 @@ export class CrearPeliculaComponent implements OnInit {
    
   }
 
+  
   guardarCambios(pelicula: peliculaCreacionDTO){
     this.peliculasService.crear(pelicula)
-    .subscribe(() => console.log('wu'),
+    .subscribe((id: number) => this.router.navigate(['/peliculas/' + id]),
     error => this.errores = parsearErroresApi(error));
   }
-  // guardarCambios(pelicula: peliculaCreacionDTO){
-  //   this.peliculasService.crear(pelicula)
-  //   .subscribe((id: number) => this.router.navigate(['/pelicula/' + id]),
-  //   error => this.errores = parsearErroresApi(error));
-  // }
   
 
 }
