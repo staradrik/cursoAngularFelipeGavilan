@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { PeliculaPostGet } from './pelicula';
+import { formatearFecha } from '../utilidades/utilidades';
+import { PeliculaPostGet, peliculaCreacionDTO } from './pelicula';
 
 @Injectable({
   providedIn: 'root'
@@ -34,10 +35,10 @@ export class PeliculasService {
   //   {params, observe: 'response'});
   // }
 
-  // public crear(pelicula: PeliculaCreacionDTO): Observable<number>{
-  //   const formData = this.ConstruirFormData(pelicula);
-  //   return this.http.post<number>(this.apiURL, formData);
-  // }
+  public crear(pelicula: peliculaCreacionDTO){
+    const formData = this.ConstruirFormData(pelicula);
+    return this.http.post(this.apiURL, formData);
+  }
 
   // public editar(id: number, pelicula: PeliculaCreacionDTO){
   //   const formData = this.ConstruirFormData(pelicula);
@@ -48,24 +49,24 @@ export class PeliculasService {
   //   return this.http.delete(`${this.apiURL}/${id}`);
   // }
 
-  // private ConstruirFormData(pelicula: PeliculaCreacionDTO): FormData {
-  //   const formData =  new FormData();
+  private ConstruirFormData(pelicula: peliculaCreacionDTO): FormData {
+    const formData =  new FormData();
 
-  //   formData.append('titulo', pelicula.titulo);
-  //   formData.append('resumen', pelicula.resumen);
-  //   formData.append('trailer', pelicula.trailer);
-  //   formData.append('enCines', String(pelicula.enCines));
-  //   if (pelicula.fechaLanzamiento){
-  //     formData.append('fechaLanzamiento', formatearFecha(pelicula.fechaLanzamiento));
-  //   }
+    formData.append('titulo', pelicula.titulo);
+    formData.append('resumen', pelicula.resumen);
+    formData.append('trailer', pelicula.trailer);
+    formData.append('enCines', String(pelicula.enCines));
+    if (pelicula.fechaLanzamiento){
+      formData.append('fechaLanzamiento', formatearFecha(pelicula.fechaLanzamiento));
+    }
 
-  //   if (pelicula.poster){
-  //     formData.append('poster', pelicula.poster);
-  //   }
+    if (pelicula.poster){
+      formData.append('poster', pelicula.poster);
+    }
 
-  //   formData.append('generosIds', JSON.stringify(pelicula.generosIds));
-  //   formData.append('cinesIds', JSON.stringify(pelicula.cinesIds));
-  //   formData.append('actores', JSON.stringify(pelicula.actores));
-  //   return formData;
-  // }
+    formData.append('generosIds', JSON.stringify(pelicula.generosIds));
+    formData.append('cinesIds', JSON.stringify(pelicula.cinesIds));
+    formData.append('actores', JSON.stringify(pelicula.actores));
+    return formData;
+  }
 }

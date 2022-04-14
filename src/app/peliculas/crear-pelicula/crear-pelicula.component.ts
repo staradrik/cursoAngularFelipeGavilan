@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MultipleSelectorModel } from 'src/app/utilidades/selector-multiple/MultipleSelectorModel';
+import { parsearErroresApi } from 'src/app/utilidades/utilidades';
 import { peliculaCreacionDTO } from '../pelicula';
 import { PeliculasService } from '../peliculas.service';
 
@@ -15,6 +16,7 @@ export class CrearPeliculaComponent implements OnInit {
     private router: Router) { }
 
   errores: string[] = [];
+  
   generosNoSeleccionados: MultipleSelectorModel [];
   cinesNoSeleccionados: MultipleSelectorModel [];
 
@@ -29,17 +31,20 @@ export class CrearPeliculaComponent implements OnInit {
       this.cinesNoSeleccionados = resultado.cines.map(cines => {
         return <MultipleSelectorModel>{llave: cines.id, valor: cines.nombre}
       });
- console.log(resultado)
     }, error => console.error(error));
    
   }
 
   guardarCambios(pelicula: peliculaCreacionDTO){
-     console.log(pelicula)
-    // this.peliculasService.crear(pelicula)
-    // .subscribe((id: number) => this.router.navigate(['/pelicula/' + id]),
-    // error => this.errores = parsearErroresAPI(error));
+    this.peliculasService.crear(pelicula)
+    .subscribe(() => console.log('wu'),
+    error => this.errores = parsearErroresApi(error));
   }
+  // guardarCambios(pelicula: peliculaCreacionDTO){
+  //   this.peliculasService.crear(pelicula)
+  //   .subscribe((id: number) => this.router.navigate(['/pelicula/' + id]),
+  //   error => this.errores = parsearErroresApi(error));
+  // }
   
 
 }
