@@ -83,7 +83,7 @@ export class SeguridadService {
     localStorage.setItem(this.llaveExpiracion, respuestaAutenticacion.expiracion.toString());
   }
 
-  // obtenerToken(){
-  //   return localStorage.getItem(this.llaveToken);
-  // }
+  obtenerToken(){
+    return localStorage.getItem(this.llaveToken);
+  }
 }
