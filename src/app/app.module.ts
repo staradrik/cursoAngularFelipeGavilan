@@ -40,6 +40,8 @@ import { SelectorMultipleComponent } from './utilidades/selector-multiple/select
 import { DetallePeliculaComponent } from './peliculas/detalle-pelicula/detalle-pelicula.component';
 import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component';
 import { LoginComponent } from './seguridad/login/login.component';
+import { RegistroComponent } from './seguridad/registro/registro.component';
+import { FormularioAutenticacionComponent } from './seguridad/formulario-autenticacion/formulario-autenticacion.component';
 
 
 
@@ -78,7 +80,9 @@ import { LoginComponent } from './seguridad/login/login.component';
     SelectorMultipleComponent,
     DetallePeliculaComponent,
     AutorizadoComponent,
-    LoginComponent       
+    LoginComponent,
+    RegistroComponent,
+    FormularioAutenticacionComponent       
   ],
   imports: [
     AppRoutingModule,

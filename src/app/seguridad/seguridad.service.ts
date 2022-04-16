@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { credencialesUsuario, respuestaAutenticacion } from './seguridad';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +11,7 @@ export class SeguridadService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // apiURL = environment.apiURL + 'cuentas'
+   apiURL = environment.apiURL + 'cuentas'
   // private readonly llaveToken = 'token';
   // private readonly llaveExpiracion = 'token-expiracion';
   // private readonly campoRol = 'role';
@@ -67,9 +70,9 @@ export class SeguridadService {
   //   return dataToken[campo];
   // }
 
-  // registrar(credenciales: credencialesUsuario): Observable<respuestaAutenticacion>{
-  //   return this.httpClient.post<respuestaAutenticacion>(this.apiURL + '/crear', credenciales);
-  // }
+  registrar(credenciales: credencialesUsuario): Observable<respuestaAutenticacion>{
+    return this.httpClient.post<respuestaAutenticacion>(this.apiURL + '/crear', credenciales);
+  }
 
   // login(credenciales: credencialesUsuario): Observable<respuestaAutenticacion>{
   //   return this.httpClient.post<respuestaAutenticacion>(this.apiURL + '/login', credenciales);
