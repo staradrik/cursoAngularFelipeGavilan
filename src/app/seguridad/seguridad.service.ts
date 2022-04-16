@@ -59,8 +59,7 @@ export class SeguridadService {
   }
 
   obtenerRol(): string {
-    return '';
-    //return this.obtenerCampoJWT(this.campoRol);
+    return this.obtenerCampoJWT(this.campoRol);
   }
 
   obtenerCampoJWT(campo: string): string{
