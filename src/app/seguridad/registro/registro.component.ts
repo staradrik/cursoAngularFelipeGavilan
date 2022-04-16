@@ -22,9 +22,8 @@ export class RegistroComponent implements OnInit {
   registrar(credenciales: credencialesUsuario){
     this.seguridadService.registrar(credenciales)
     .subscribe(respuesta => {
-      console.log(respuesta)
-      // this.seguridadService.guardarToken(respuesta);
-      // this.router.navigate(['/']);
+      this.seguridadService.guardarToken(respuesta);
+      this.router.navigate(['/']);
     }, errores => this.errores = parsearErroresApi(errores));
   }
 
