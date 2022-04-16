@@ -38,6 +38,8 @@ import { MostrarErroresComponent } from './utilidades/mostrar-errores/mostrar-er
 import { RatingComponent } from './utilidades/rating/rating.component';
 import { SelectorMultipleComponent } from './utilidades/selector-multiple/selector-multiple.component';
 import { DetallePeliculaComponent } from './peliculas/detalle-pelicula/detalle-pelicula.component';
+import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component';
+import { LoginComponent } from './seguridad/login/login.component';
 
 
 
@@ -74,7 +76,9 @@ import { DetallePeliculaComponent } from './peliculas/detalle-pelicula/detalle-p
     MostrarErroresComponent, 
     RatingComponent,
     SelectorMultipleComponent,
-    DetallePeliculaComponent       
+    DetallePeliculaComponent,
+    AutorizadoComponent,
+    LoginComponent       
   ],
   imports: [
     AppRoutingModule,
